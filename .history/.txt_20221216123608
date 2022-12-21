@@ -1,0 +1,9 @@
+Clixo --
+
+Analatics Graph { Age , Gender , City }
+
+
+pricing Section {
+	Expected Price , Actual price , Description
+	}
+	City (ADD TO SIDEBAR)
