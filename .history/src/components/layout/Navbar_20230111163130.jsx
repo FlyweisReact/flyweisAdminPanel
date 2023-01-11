@@ -108,11 +108,11 @@ const Navbar = ({ hamb, setHamb }) => {
               </div>
             </figcaption>
           </section>
-          {/* <FiSettings
+          <FiSettings
             onClick={() => setPopup(!popup)}
             className="text-2xl sm:text-3xl font-bold text-[rgb(241,146,46)] cursor-pointer"
             style={{ color: "#aac0bb" }}
-          /> */}
+          />
         </div>
       </div>
     </>
