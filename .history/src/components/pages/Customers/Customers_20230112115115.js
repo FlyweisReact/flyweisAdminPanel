@@ -13,8 +13,8 @@ const Customers = () => {
   const [modalShow, setModalShow] = React.useState(false);
   const [query, setQuery] = useState("");
   const [edit, setEdit] = useState(false);
+
   const [comment, setComment] = useState(false);
-  const [time, setTime] = useState(false);
 
   // Add Customer
   function MyVerticallyCenteredModal(props) {
@@ -97,19 +97,9 @@ const Customers = () => {
       name: "Abhishek",
       email: "Customer1@gmail.com",
       phoneNumber: "1245789632",
-      category: "Good+",
-      comment:
-        "stry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the le",
-      time: "04:56pm",
-    },
-    {
-      name: "New Customer",
-      email: "Customer1@gmail.com",
-      phoneNumber: "1245789632",
       category: "Good",
       comment:
         "stry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the le",
-      time: "04:56pm",
     },
     {
       name: "Rajan",
@@ -118,13 +108,12 @@ const Customers = () => {
       category: "About To Pay",
       comment:
         "stry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the le",
-      time: "04:56pm",
     },
     {
       name: "New",
       email: "Customer1@gmail.com",
       phoneNumber: "7845965412",
-      category: "Payment",
+      category: "Pending",
     },
     {
       name: "Customer",
@@ -133,20 +122,18 @@ const Customers = () => {
       category: "Good",
       comment:
         "stry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the le",
-      time: "04:56pm",
     },
     {
       name: "Customer2",
       email: "Customer1@gmail.com",
       phoneNumber: "5478962145",
       category: "About To Pay",
-      time: "04:56pm",
     },
     {
       name: "Customer3",
       email: "Customer1@gmail.com",
       phoneNumber: "7845965412",
-      category: "Payment",
+      category: "Pending",
     },
   ];
   // SearchBar
@@ -173,32 +160,25 @@ const Customers = () => {
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            Add {time ? "Reminder" : "Customer"}
+            Add Customer
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Container>
             <Form>
-              {time ? (
-                <Form.Group className="my-3">
-                  <Form.Label>Reminder</Form.Label>
-                  <Form.Control type="time" />
-                </Form.Group>
-              ) : (
-                <Form.Group>
-                  <Form.Label>Comment</Form.Label>
-                  <FloatingLabel
-                    controlId="floatingTextarea"
-                    label="Comments"
-                    className="mb-3"
-                  >
-                    <Form.Control
-                      as="textarea"
-                      placeholder="Leave a comment here"
-                    />
-                  </FloatingLabel>
-                </Form.Group>
-              )}
+              <Form.Group>
+                <Form.Label>Comment</Form.Label>
+                <FloatingLabel
+                  controlId="floatingTextarea"
+                  label="Comments"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    as="textarea"
+                    placeholder="Leave a comment here"
+                  />
+                </FloatingLabel>
+              </Form.Group>
               <Button variant="outline-success">Submit</Button>
             </Form>
           </Container>
@@ -278,7 +258,7 @@ const Customers = () => {
           <div className="items" onClick={() => setQuery("About To Pay")}>
             About To Pay
           </div>
-          <div className="items" onClick={() => setQuery("Payment")}>
+          <div className="items" onClick={() => setQuery("Pending")}>
             Payment
           </div>
         </div>
@@ -310,7 +290,6 @@ const Customers = () => {
                 <th> Phone Number </th>
                 <th> Category </th>
                 <th className="Comm"> Comment </th>
-                <th>Reminder</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -326,22 +305,8 @@ const Customers = () => {
                     {i.comment ? (
                       i.comment
                     ) : (
-                      <Button onClick={() => {
-                        setTime(false)
-                        setComment(true)}}>
+                      <Button onClick={() => setComment(true)}>
                         Add Comment
-                      </Button>
-                    )}{" "}
-                  </td>
-                  <td>
-                    {" "}
-                    {i.time ? (
-                      i.time
-                    ) : (
-                      <Button onClick={() => {
-                           setTime(true)
-                        setComment(true)}}>
-                        Add Reminder
                       </Button>
                     )}{" "}
                   </td>

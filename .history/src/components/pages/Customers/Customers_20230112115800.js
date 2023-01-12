@@ -180,7 +180,7 @@ const Customers = () => {
           <Container>
             <Form>
               {time ? (
-                <Form.Group className="my-3">
+                <Form.Group >
                   <Form.Label>Reminder</Form.Label>
                   <Form.Control type="time" />
                 </Form.Group>

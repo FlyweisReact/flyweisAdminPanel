@@ -38,7 +38,7 @@ const Login = () => {
           onSubmit={login}
         >
           <span className="text-center text-[rgb(241,146,46)]" style={{fontSize : '2rem'}}>
-         <img src={img} alt='' />
+         {img}
           </span>
           <section className="py-7 space-y-6">
             {/* Email */}

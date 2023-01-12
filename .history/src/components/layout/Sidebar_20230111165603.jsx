@@ -52,7 +52,7 @@ const Sidebar = ({ hamb, setHamb }) => {
             style={{ fontSize: "2rem", textAlign: "center", color: "#fff"  , }}
           >
           {/* CRM */}
-          <img src={img} alt='' />
+          <img s
           </span>
         </figure>
         <nav className="py-6">

@@ -7,14 +7,11 @@ import Modal from "react-bootstrap/Modal";
 import { toast } from "react-toastify";
 import { Button, Container, Form } from "react-bootstrap";
 import img from "../../SVG/list.svg";
-import FloatingLabel from "react-bootstrap/FloatingLabel";
 
 const Customers = () => {
   const [modalShow, setModalShow] = React.useState(false);
   const [query, setQuery] = useState("");
   const [edit, setEdit] = useState(false);
-  const [comment, setComment] = useState(false);
-  const [time, setTime] = useState(false);
 
   // Add Customer
   function MyVerticallyCenteredModal(props) {
@@ -97,56 +94,40 @@ const Customers = () => {
       name: "Abhishek",
       email: "Customer1@gmail.com",
       phoneNumber: "1245789632",
-      category: "Good+",
-      comment:
-        "stry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the le",
-      time: "04:56pm",
-    },
-    {
-      name: "New Customer",
-      email: "Customer1@gmail.com",
-      phoneNumber: "1245789632",
       category: "Good",
-      comment:
-        "stry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the le",
-      time: "04:56pm",
+      comment : "stry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the le"
     },
     {
       name: "Rajan",
       email: "Customer1@gmail.com",
       phoneNumber: "5478962145",
       category: "About To Pay",
-      comment:
-        "stry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the le",
-      time: "04:56pm",
+      comment : "stry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the le"
     },
     {
       name: "New",
       email: "Customer1@gmail.com",
       phoneNumber: "7845965412",
-      category: "Payment",
+      category: "Pending",
     },
     {
       name: "Customer",
       email: "Customer1@gmail.com",
       phoneNumber: "1245789632",
       category: "Good",
-      comment:
-        "stry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the le",
-      time: "04:56pm",
+      comment : "stry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the le"
     },
     {
       name: "Customer2",
       email: "Customer1@gmail.com",
       phoneNumber: "5478962145",
       category: "About To Pay",
-      time: "04:56pm",
     },
     {
       name: "Customer3",
       email: "Customer1@gmail.com",
       phoneNumber: "7845965412",
-      category: "Payment",
+      category: "Pending",
     },
   ];
   // SearchBar
@@ -163,54 +144,9 @@ const Customers = () => {
           i?.category?.toLowerCase().includes(query?.toLowerCase())
       );
 
-  function AddComment(props) {
-    return (
-      <Modal
-        {...props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            Add {time ? "Reminder" : "Customer"}
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Container>
-            <Form>
-              {time ? (
-                <Form.Group className="my-3">
-                  <Form.Label>Reminder</Form.Label>
-                  <Form.Control type="time" />
-                </Form.Group>
-              ) : (
-                <Form.Group>
-                  <Form.Label>Comment</Form.Label>
-                  <FloatingLabel
-                    controlId="floatingTextarea"
-                    label="Comments"
-                    className="mb-3"
-                  >
-                    <Form.Control
-                      as="textarea"
-                      placeholder="Leave a comment here"
-                    />
-                  </FloatingLabel>
-                </Form.Group>
-              )}
-              <Button variant="outline-success">Submit</Button>
-            </Form>
-          </Container>
-        </Modal.Body>
-        <Modal.Footer></Modal.Footer>
-      </Modal>
-    );
-  }
-
   return (
     <>
-      <AddComment show={comment} onHide={() => setComment(false)} />{" "}
+      {" "}
       <MyVerticallyCenteredModal
         show={modalShow}
         onHide={() => setModalShow(false)}
@@ -245,7 +181,7 @@ const Customers = () => {
       >
         <div className="pb-4 sticky top-0  w-full flex justify-between items-center bg-white">
           <span style={{ color: "black", fontSize: "15px", fontWeight: "400" }}>
-            All Customers ( Total : {data.length} )
+          All Customers ( Total : {data.length} )
             <hr style={{ width: "70%" }} />
           </span>
           <Button
@@ -266,19 +202,19 @@ const Customers = () => {
         </div>
 
         <div className="three-box">
-          <div className="items" onClick={() => setQuery("")}>
+          <div className='items' onClick={() => setQuery('')} >
             All
           </div>
-          <div className="items" onClick={() => setQuery("Good+")}>
+          <div className='items' onClick={() => setQuery('Good')} >
             Good+
           </div>
-          <div className="items" onClick={() => setQuery("Good")}>
+          <div className='items' onClick={() => setQuery('Good')} >
             Good
           </div>
-          <div className="items" onClick={() => setQuery("About To Pay")}>
+          <div className='items' onClick={() => setQuery('About To Pay')}>
             About To Pay
           </div>
-          <div className="items" onClick={() => setQuery("Payment")}>
+          <div className='items' onClick={() => setQuery('Pending')}>
             Payment
           </div>
         </div>
@@ -309,8 +245,7 @@ const Customers = () => {
                 <th>Email</th>
                 <th> Phone Number </th>
                 <th> Category </th>
-                <th className="Comm"> Comment </th>
-                <th>Reminder</th>
+                <th> Comment </th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -321,30 +256,7 @@ const Customers = () => {
                   <td> {i.email} </td>
                   <td> {i.phoneNumber} </td>
                   <td> {i.category} </td>
-                  <td style={{ maxWidth: "200px" }} className="Comm">
-                    {" "}
-                    {i.comment ? (
-                      i.comment
-                    ) : (
-                      <Button onClick={() => {
-                        setTime(false)
-                        setComment(true)}}>
-                        Add Comment
-                      </Button>
-                    )}{" "}
-                  </td>
-                  <td>
-                    {" "}
-                    {i.time ? (
-                      i.time
-                    ) : (
-                      <Button onClick={() => {
-                           setTime(true)
-                        setComment(true)}}>
-                        Add Reminder
-                      </Button>
-                    )}{" "}
-                  </td>
+                  <td style={{maxWidth : '2'}}> {i.comment} </td>
                   <td>
                     <i
                       class="fa-solid fa-pen-to-square"

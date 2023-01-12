@@ -180,8 +180,8 @@ const Customers = () => {
           <Container>
             <Form>
               {time ? (
-                <Form.Group className="my-3">
-                  <Form.Label>Reminder</Form.Label>
+                <Form.Group>
+                  <Form.Label>Comment</Form.Label>
                   <Form.Control type="time" />
                 </Form.Group>
               ) : (
@@ -327,7 +327,7 @@ const Customers = () => {
                       i.comment
                     ) : (
                       <Button onClick={() => {
-                        setTime(false)
+                        setTime(true)
                         setComment(true)}}>
                         Add Comment
                       </Button>
@@ -338,9 +338,7 @@ const Customers = () => {
                     {i.time ? (
                       i.time
                     ) : (
-                      <Button onClick={() => {
-                           setTime(true)
-                        setComment(true)}}>
+                      <Button onClick={() => setComment(true)}>
                         Add Reminder
                       </Button>
                     )}{" "}

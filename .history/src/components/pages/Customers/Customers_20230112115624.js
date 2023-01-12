@@ -14,7 +14,7 @@ const Customers = () => {
   const [query, setQuery] = useState("");
   const [edit, setEdit] = useState(false);
   const [comment, setComment] = useState(false);
-  const [time, setTime] = useState(false);
+  const [time , setTime] = useState(false)
 
   // Add Customer
   function MyVerticallyCenteredModal(props) {
@@ -100,7 +100,7 @@ const Customers = () => {
       category: "Good+",
       comment:
         "stry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the le",
-      time: "04:56pm",
+        time : '04:56pm'
     },
     {
       name: "New Customer",
@@ -109,7 +109,7 @@ const Customers = () => {
       category: "Good",
       comment:
         "stry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the le",
-      time: "04:56pm",
+        time : '04:56pm'
     },
     {
       name: "Rajan",
@@ -118,7 +118,7 @@ const Customers = () => {
       category: "About To Pay",
       comment:
         "stry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the le",
-      time: "04:56pm",
+        time : '04:56pm'
     },
     {
       name: "New",
@@ -133,14 +133,14 @@ const Customers = () => {
       category: "Good",
       comment:
         "stry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the le",
-      time: "04:56pm",
+        time : '04:56pm'
     },
     {
       name: "Customer2",
       email: "Customer1@gmail.com",
       phoneNumber: "5478962145",
       category: "About To Pay",
-      time: "04:56pm",
+      time : '04:56pm'
     },
     {
       name: "Customer3",
@@ -173,32 +173,26 @@ const Customers = () => {
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            Add {time ? "Reminder" : "Customer"}
+            Add {time ? 'Reminder' : "Customer"}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Container>
             <Form>
-              {time ? (
-                <Form.Group className="my-3">
-                  <Form.Label>Reminder</Form.Label>
-                  <Form.Control type="time" />
-                </Form.Group>
-              ) : (
-                <Form.Group>
-                  <Form.Label>Comment</Form.Label>
-                  <FloatingLabel
-                    controlId="floatingTextarea"
-                    label="Comments"
-                    className="mb-3"
-                  >
-                    <Form.Control
-                      as="textarea"
-                      placeholder="Leave a comment here"
-                    />
-                  </FloatingLabel>
-                </Form.Group>
-              )}
+              <Form.Group>
+              {time ? : <Form.Label>Comment</Form.Label>
+                <FloatingLabel
+                  controlId="floatingTextarea"
+                  label="Comments"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    as="textarea"
+                    placeholder="Leave a comment here"
+                  />
+                </FloatingLabel>
+              </Form.Group>}
+                
               <Button variant="outline-success">Submit</Button>
             </Form>
           </Container>
@@ -326,21 +320,17 @@ const Customers = () => {
                     {i.comment ? (
                       i.comment
                     ) : (
-                      <Button onClick={() => {
-                        setTime(false)
-                        setComment(true)}}>
+                      <Button onClick={() => setComment(true)}>
                         Add Comment
                       </Button>
                     )}{" "}
                   </td>
-                  <td>
+                  <td >
                     {" "}
                     {i.time ? (
                       i.time
                     ) : (
-                      <Button onClick={() => {
-                           setTime(true)
-                        setComment(true)}}>
+                      <Button onClick={() => setComment(true)}>
                         Add Reminder
                       </Button>
                     )}{" "}

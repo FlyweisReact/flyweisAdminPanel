@@ -8,7 +8,7 @@ import { BiLogInCircle } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Oval } from "react-loader-spinner";
-import img from '../Assets/Group 832 1.svg'
+import img from '../'
 
 const Login = () => {
   const [pass, setPass] = useState(false);
@@ -38,7 +38,7 @@ const Login = () => {
           onSubmit={login}
         >
           <span className="text-center text-[rgb(241,146,46)]" style={{fontSize : '2rem'}}>
-         <img src={img} alt='' />
+         CRM
           </span>
           <section className="py-7 space-y-6">
             {/* Email */}

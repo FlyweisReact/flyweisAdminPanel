@@ -334,7 +334,7 @@ input:checked + .slider::before {
   border: 1px solid #7d09f3;
 }
 
-@media (max-width :1000px) {
+@media (max-width :900px) {
   .three-box{
     display: grid;
     grid-template-columns: auto auto;

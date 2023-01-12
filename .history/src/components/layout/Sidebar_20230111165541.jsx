@@ -7,7 +7,6 @@ import { BiLogOutCircle } from "react-icons/bi";
 import { AiOutlineUser } from "react-icons/ai";
 import { MdDashboardCustomize } from "react-icons/md";
 import { toast } from "react-toastify";
-import img from '../Assets/Group 832 1.svg'
 
 const Sidebar = ({ hamb, setHamb }) => {
   const navigate = useNavigate();
@@ -52,7 +51,6 @@ const Sidebar = ({ hamb, setHamb }) => {
             style={{ fontSize: "2rem", textAlign: "center", color: "#fff"  , }}
           >
           {/* CRM */}
-          <img src={img} alt='' />
           </span>
         </figure>
         <nav className="py-6">
