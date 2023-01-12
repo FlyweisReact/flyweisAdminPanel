@@ -1,5 +1,3 @@
-/** @format */
-
 import React, { useState } from "react";
 import HOC from "../../layout/HOC";
 import Table from "react-bootstrap/Table";
@@ -9,7 +7,7 @@ import { Button, Container, Form } from "react-bootstrap";
 import img from "../../SVG/list.svg";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 
-const Customers = () => {
+const ViewCustomer = () => {
   const [modalShow, setModalShow] = React.useState(false);
   const [query, setQuery] = useState("");
   const [edit, setEdit] = useState(false);
@@ -230,8 +228,8 @@ const Customers = () => {
           }}
         />
         <p style={{ color: "black", fontSize: "18px", margin: "0" }}>
-          Customer List <br />
-          <span style={{ fontSize: "14px" }}>All Customer List</span>
+        Member  Customer List <br />
+          <span style={{ fontSize: "14px" }}>All Member Customer List</span>
         </p>
       </div>
       <div
@@ -248,21 +246,6 @@ const Customers = () => {
             All Customers ( Total : {data.length} )
             <hr style={{ width: "70%" }} />
           </span>
-          <Button
-            style={{
-              backgroundColor: "#4099ff",
-              color: "#fff",
-              borderRadius: "0",
-              border: "1px solid #4099ff",
-              padding: "10px",
-            }}
-            onClick={() => {
-              setModalShow(true);
-              setEdit(false);
-            }}
-          >
-            Add Customers
-          </Button>
         </div>
 
         <div className="three-box">
@@ -311,7 +294,6 @@ const Customers = () => {
                 <th> Category </th>
                 <th className="Comm"> Comment </th>
                 <th>Reminder</th>
-                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -322,25 +304,13 @@ const Customers = () => {
                   <td> {i.phoneNumber} </td>
                   <td> {i.category} </td>
                   <td style={{ maxWidth: "200px" }} className="Comm">
-                    {" "}
-                    {i.comment ? (
-                      i.comment
-                    ) : (
-                      <Button
-                        onClick={() => {
-                          setTime(false);
-                          setComment(true);
-                        }}
-                      >
-                        Add Comment
-                      </Button>
-                    )}{" "}
+            
+                   {   i.comment}
+              
                   </td>
                   <td>
-                    {" "}
-                    {i.time ? (
                       i.time
-                    ) : (
+                  
                       <Button
                         onClick={() => {
                           setTime(true);
@@ -349,7 +319,7 @@ const Customers = () => {
                       >
                         Add Reminder
                       </Button>
-                    )}{" "}
+                 
                   </td>
                   <td>
                     <div style={{ display: "flex", gap: "10px" }}>
@@ -374,4 +344,4 @@ const Customers = () => {
   );
 };
 
-export default HOC(Customers);
+export default HOC(ViewCustomer)

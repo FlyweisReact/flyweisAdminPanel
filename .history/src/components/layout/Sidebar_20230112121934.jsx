@@ -25,8 +25,8 @@ const Sidebar = ({ hamb, setHamb }) => {
     },
     {
       icon: <AiOutlineUser className="text-xl mr-3" />,
-      link: "/sales",
-      name: "Sales Members",
+      link: "/customer",
+      name: "Customer's",
     },
   ];
 

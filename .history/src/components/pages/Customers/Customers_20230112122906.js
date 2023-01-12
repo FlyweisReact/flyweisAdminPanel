@@ -173,34 +173,12 @@ const Customers = () => {
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            Add {time ? "Reminder" : "Customer"}
+         View Member
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Container>
-            <Form>
-              {time ? (
-                <Form.Group className="my-3">
-                  <Form.Label>Reminder</Form.Label>
-                  <Form.Control type="time" />
-                </Form.Group>
-              ) : (
-                <Form.Group>
-                  <Form.Label>Comment</Form.Label>
-                  <FloatingLabel
-                    controlId="floatingTextarea"
-                    label="Comments"
-                    className="mb-3"
-                  >
-                    <Form.Control
-                      as="textarea"
-                      placeholder="Leave a comment here"
-                    />
-                  </FloatingLabel>
-                </Form.Group>
-              )}
-              <Button variant="outline-success">Submit</Button>
-            </Form>
+
           </Container>
         </Modal.Body>
         <Modal.Footer></Modal.Footer>

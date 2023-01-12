@@ -1,5 +1,3 @@
-/** @format */
-
 import React, { useState } from "react";
 import HOC from "../../layout/HOC";
 import Table from "react-bootstrap/Table";
@@ -9,7 +7,7 @@ import { Button, Container, Form } from "react-bootstrap";
 import img from "../../SVG/list.svg";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 
-const Customers = () => {
+const ViewCustomer = () => {
   const [modalShow, setModalShow] = React.useState(false);
   const [query, setQuery] = useState("");
   const [edit, setEdit] = useState(false);
@@ -374,4 +372,4 @@ const Customers = () => {
   );
 };
 
-export default HOC(Customers);
+export default HOC(ViewCustomer)

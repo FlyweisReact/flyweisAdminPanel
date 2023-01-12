@@ -6,8 +6,6 @@ import Dashboard from "./components/pages/Dashboard";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Customers from "./components/pages/Customers/Customers";
-import Saler from "./components/pages/Customers/Saler";
-import ViewCustomer from "./components/pages/Customers/ViewCustomer";
 
 function App() {
   return (
@@ -17,8 +15,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/customer" element={<Customers />} />
-        <Route path="/sales" element={<Saler />} />
-        <Route path='/customer/:id' element={<ViewCustomer />} />
+        <Route path="/sales" 
       </Routes>
     </>
   );

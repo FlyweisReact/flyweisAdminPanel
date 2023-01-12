@@ -19,11 +19,11 @@ const Dashboard = () => {
       bg: "#4099ff",
     },
     {
-      title: "Total Sales's Members",
-      number: "40",
-      icon: <i className="fa-solid fa-user-tie text-2xl text-[#5b63d9]"></i>,
-      link: "/sales",
-      bg: "#5b63d9",
+      title: "Total Sales's",
+      number: "150",
+      icon: <i className="fa-solid fa-user text-2xl text-[#4099ff]"></i>,
+      link: "/customer",
+      bg: "#4099ff",
     },
   ];
 

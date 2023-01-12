@@ -326,12 +326,9 @@ const Customers = () => {
                     {i.comment ? (
                       i.comment
                     ) : (
-                      <Button
-                        onClick={() => {
-                          setTime(false);
-                          setComment(true);
-                        }}
-                      >
+                      <Button onClick={() => {
+                        setTime(false)
+                        setComment(true)}}>
                         Add Comment
                       </Button>
                     )}{" "}
@@ -341,28 +338,26 @@ const Customers = () => {
                     {i.time ? (
                       i.time
                     ) : (
-                      <Button
-                        onClick={() => {
-                          setTime(true);
-                          setComment(true);
-                        }}
-                      >
+                      <Button onClick={() => {
+                           setTime(true)
+                        setComment(true)}}>
                         Add Reminder
                       </Button>
                     )}{" "}
                   </td>
                   <td>
-                    <div style={{ display: "flex", gap: "10px" }}>
-                      <i class="fa-solid fa-trash" style={{ color: "red" }}></i>
-                      <i
-                        class="fa-solid fa-pen-to-square"
-                        style={{ color: "#267cb5", cursor: "pointer" }}
-                        onClick={() => {
-                          setModalShow(true);
-                          setEdit(true);
-                        }}
-                      ></i>
-                    </div>
+                  <div style={{display  : 'flex' , gap}}>
+                  <i class="fa-solid fa-trash" style={{color : 'red'}}></i>
+                  <i
+                      class="fa-solid fa-pen-to-square"
+                      style={{ color: "#267cb5", cursor: "pointer" }}
+                      onClick={() => {
+                        setModalShow(true);
+                        setEdit(true);
+                      }}
+                    ></i>
+                  </div>
+                 
                   </td>
                 </tr>
               ))}

@@ -1,5 +1,3 @@
-/** @format */
-
 import React, { useState } from "react";
 import HOC from "../../layout/HOC";
 import Table from "react-bootstrap/Table";
@@ -9,7 +7,7 @@ import { Button, Container, Form } from "react-bootstrap";
 import img from "../../SVG/list.svg";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 
-const Customers = () => {
+const ViewCustomer = () => {
   const [modalShow, setModalShow] = React.useState(false);
   const [query, setQuery] = useState("");
   const [edit, setEdit] = useState(false);
@@ -163,58 +161,10 @@ const Customers = () => {
           i?.category?.toLowerCase().includes(query?.toLowerCase())
       );
 
-  function AddComment(props) {
-    return (
-      <Modal
-        {...props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            Add {time ? "Reminder" : "Customer"}
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Container>
-            <Form>
-              {time ? (
-                <Form.Group className="my-3">
-                  <Form.Label>Reminder</Form.Label>
-                  <Form.Control type="time" />
-                </Form.Group>
-              ) : (
-                <Form.Group>
-                  <Form.Label>Comment</Form.Label>
-                  <FloatingLabel
-                    controlId="floatingTextarea"
-                    label="Comments"
-                    className="mb-3"
-                  >
-                    <Form.Control
-                      as="textarea"
-                      placeholder="Leave a comment here"
-                    />
-                  </FloatingLabel>
-                </Form.Group>
-              )}
-              <Button variant="outline-success">Submit</Button>
-            </Form>
-          </Container>
-        </Modal.Body>
-        <Modal.Footer></Modal.Footer>
-      </Modal>
-    );
-  }
 
   return (
     <>
-      <AddComment show={comment} onHide={() => setComment(false)} />{" "}
-      <MyVerticallyCenteredModal
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-      />{" "}
+ 
       <div style={{ display: "flex", gap: "20px", marginBottom: "2%" }}>
         <img
           src={img}
@@ -230,8 +180,8 @@ const Customers = () => {
           }}
         />
         <p style={{ color: "black", fontSize: "18px", margin: "0" }}>
-          Customer List <br />
-          <span style={{ fontSize: "14px" }}>All Customer List</span>
+        Member  Customer List <br />
+          <span style={{ fontSize: "14px" }}>All Member Customer List</span>
         </p>
       </div>
       <div
@@ -248,21 +198,6 @@ const Customers = () => {
             All Customers ( Total : {data.length} )
             <hr style={{ width: "70%" }} />
           </span>
-          <Button
-            style={{
-              backgroundColor: "#4099ff",
-              color: "#fff",
-              borderRadius: "0",
-              border: "1px solid #4099ff",
-              padding: "10px",
-            }}
-            onClick={() => {
-              setModalShow(true);
-              setEdit(false);
-            }}
-          >
-            Add Customers
-          </Button>
         </div>
 
         <div className="three-box">
@@ -311,7 +246,6 @@ const Customers = () => {
                 <th> Category </th>
                 <th className="Comm"> Comment </th>
                 <th>Reminder</th>
-                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -322,48 +256,17 @@ const Customers = () => {
                   <td> {i.phoneNumber} </td>
                   <td> {i.category} </td>
                   <td style={{ maxWidth: "200px" }} className="Comm">
-                    {" "}
-                    {i.comment ? (
-                      i.comment
-                    ) : (
-                      <Button
-                        onClick={() => {
-                          setTime(false);
-                          setComment(true);
-                        }}
-                      >
-                        Add Comment
-                      </Button>
-                    )}{" "}
+            
+                   {   i.comment}
+              
                   </td>
                   <td>
-                    {" "}
-                    {i.time ? (
-                      i.time
-                    ) : (
-                      <Button
-                        onClick={() => {
-                          setTime(true);
-                          setComment(true);
-                        }}
-                      >
-                        Add Reminder
-                      </Button>
-                    )}{" "}
+                     { i.time
+                  
+                     }
+                 
                   </td>
-                  <td>
-                    <div style={{ display: "flex", gap: "10px" }}>
-                      <i class="fa-solid fa-trash" style={{ color: "red" }}></i>
-                      <i
-                        class="fa-solid fa-pen-to-square"
-                        style={{ color: "#267cb5", cursor: "pointer" }}
-                        onClick={() => {
-                          setModalShow(true);
-                          setEdit(true);
-                        }}
-                      ></i>
-                    </div>
-                  </td>
+                 
                 </tr>
               ))}
             </tbody>
@@ -374,4 +277,4 @@ const Customers = () => {
   );
 };
 
-export default HOC(Customers);
+export default HOC(ViewCustomer)

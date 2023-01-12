@@ -173,7 +173,7 @@ const Customers = () => {
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            Add {time ? "Reminder" : "Customer"}
+         View Member
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>

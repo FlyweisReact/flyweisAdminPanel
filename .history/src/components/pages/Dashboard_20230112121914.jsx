@@ -21,12 +21,13 @@ const Dashboard = () => {
     {
       title: "Total Sales's Members",
       number: "40",
-      icon: <i className="fa-solid fa-user-tie text-2xl text-[#5b63d9]"></i>,
+      icon: <i className="fa-solid fa-user-ti text-2xl text-[#5b63d9]"></i>,
       link: "/sales",
       bg: "#5b63d9",
     },
   ];
 
+  <i class="e"></i>
   const navigate = useNavigate();
   return (
     <>
