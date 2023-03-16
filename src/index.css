@@ -353,3 +353,15 @@ input:checked + .slider::before {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border: none;
 }
+.dashBoardCard{
+  display: flex;
+  gap : 2rem
+}
+@media (max-width : 768px) {
+  .dashBoardCard{
+    display: block;
+  }
+  .BigOuter{
+    margin-top: 10px;
+  }
+}

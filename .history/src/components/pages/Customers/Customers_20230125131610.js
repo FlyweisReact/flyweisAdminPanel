@@ -3,20 +3,20 @@
 import React, { useCallback, useEffect, useState } from "react";
 import HOC from "../../layout/HOC";
 import Table from "react-bootstrap/Table";
+import { toast } from "react-toastify";
 import img from "../../SVG/list.svg";
-import { useParams } from "react-router-dom";
 import axios from "axios";
 
-const ViewCustomer = () => {
-  const { id } = useParams();
+const Customers = () => {
   const [query, setQuery] = useState("");
   const [data, setData] = useState([]);
+
   const token = localStorage.getItem("token");
 
   const fetchData = useCallback(async () => {
     try {
       const { data } = await axios.get(
-        `https://u4x75z11l9.execute-api.ap-south-1.amazonaws.com/dev/api/v1/admin/cues/${id}`,
+        "http://ec2-15-206-210-177.ap-south-1.compute.amazonaws.com:6699/api/v1/admin/cuestomer/all",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -24,15 +24,14 @@ const ViewCustomer = () => {
         }
       );
       setData(data);
-    } catch (err) {
-      console.log(err);
+    } catch (Err) {
+      console.log(Err);
     }
-  }, [token, id]);
+  }, [token]);
+
   useEffect(() => {
     fetchData();
   }, [fetchData]);
-
-  // SearchBar
 
   const filterData = !query
     ? data?.data
@@ -42,6 +41,24 @@ const ViewCustomer = () => {
           i?.mobile?.toString()?.toLowerCase().includes(query?.toLowerCase()) ||
           i?.category?.toLowerCase().includes(query?.toLowerCase())
       );
+
+  const deleteHandler = async (id) => {
+    try {
+      const data = await axios.delete(
+        `http://ec2-15-206-210-177.ap-south-1.compute.amazonaws.com:6699/api/v1/admin/cuestomer/delete/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log(data);
+      toast.success("Customer Deleted");
+      fetchData();
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <>
@@ -60,8 +77,8 @@ const ViewCustomer = () => {
           }}
         />
         <p style={{ color: "black", fontSize: "18px", margin: "0" }}>
-          Member Customer List <br />
-          <span style={{ fontSize: "14px" }}>All Member Customer List</span>
+          Customer List <br />
+          <span style={{ fontSize: "14px" }}>All Customer List</span>
         </p>
       </div>
       <div
@@ -126,6 +143,7 @@ const ViewCustomer = () => {
                 <th> Category </th>
                 <th className="Comm"> Comment </th>
                 <th>Reminder</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -139,6 +157,15 @@ const ViewCustomer = () => {
                     {i.comment}
                   </td>
                   <td>{i.reminder}</td>
+                  <td>
+                    <div style={{ display: "flex", gap: "10px" }}>
+                      <i
+                        class="fa-solid fa-trash"
+                        style={{ color: "red", cursor: "pointer" }}
+                        onClick={() => deleteHandler(i._id)}
+                      ></i>
+                    </div>
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -149,4 +176,4 @@ const ViewCustomer = () => {
   );
 };
 
-export default HOC(ViewCustomer);
+export default HOC(Customers);

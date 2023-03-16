@@ -19,7 +19,7 @@ const Dashboard = () => {
   const totalCustomer = useCallback(async () => {
     try {
       const { data } = await axios.get(
-        "https://u4x75z11l9.execute-api.ap-south-1.amazonaws.com/dev/api/v1/admin/cuestomer/total",
+        "http://ec2-15-206-210-177.ap-south-1.compute.amazonaws.com:6699/api/v1/admin/cuestomer/total",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -30,12 +30,12 @@ const Dashboard = () => {
     } catch (err) {
       console.log(err);
     }
-  }, [token]);
+  },[token])
 
   const totalSales = useCallback(async () => {
     try {
       const { data } = await axios.get(
-        "https://u4x75z11l9.execute-api.ap-south-1.amazonaws.com/dev/api/v1/admin/allsales",
+        "http://ec2-15-206-210-177.ap-south-1.compute.amazonaws.com:6699/api/v1/admin/allsales",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -46,12 +46,12 @@ const Dashboard = () => {
     } catch (err) {
       console.log(err);
     }
-  }, [token]);
+  },[token])
 
   useEffect(() => {
     totalCustomer();
     totalSales();
-  }, [totalCustomer, totalSales]);
+  }, [totalCustomer , totalSales]);
 
   const card = [
     {
@@ -89,7 +89,9 @@ const Dashboard = () => {
         </p>
       </div>
 
-      <section className="dashBoardCard">
+      <section
+       className="dashBoardCard"
+      >
         {card.map((card, index) => {
           return (
             <div

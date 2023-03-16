@@ -1,36 +1,33 @@
-/** @format */
-
 import React, { useCallback, useEffect, useState } from "react";
 import HOC from "../../layout/HOC";
 import Table from "react-bootstrap/Table";
 import img from "../../SVG/list.svg";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+import axios from 'axios'
 
 const ViewCustomer = () => {
-  const { id } = useParams();
+  const { id } = useParams()
   const [query, setQuery] = useState("");
-  const [data, setData] = useState([]);
-  const token = localStorage.getItem("token");
+  const [ data , setData ] = useState([])
+  const token = localStorage.getItem('token')
 
   const fetchData = useCallback(async () => {
-    try {
-      const { data } = await axios.get(
-        `https://u4x75z11l9.execute-api.ap-south-1.amazonaws.com/dev/api/v1/admin/cues/${id}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+    try{
+      const {data } = await axios.get(`http://ec2-15-206-210-177.ap-south-1.compute.amazonaws.com:6699/api/v1/admin/cues/${id}` , {
+        headers : {
+          Authorization : `Bearer ${token}`
         }
-      );
-      setData(data);
-    } catch (err) {
-      console.log(err);
-    }
-  }, [token, id]);
+      })
+      setData(data)
+  }catch(err){
+    console.log(err)
+  }
+  } , [token , id])
   useEffect(() => {
-    fetchData();
-  }, [fetchData]);
+      fetchData()
+  },[fetchData])
+
+
 
   // SearchBar
 
@@ -39,12 +36,17 @@ const ViewCustomer = () => {
     : data?.data?.filter(
         (i) =>
           i?.name?.toLowerCase().includes(query?.toLowerCase()) ||
-          i?.mobile?.toString()?.toLowerCase().includes(query?.toLowerCase()) ||
+          i?.mobile
+            ?.toString()
+            ?.toLowerCase()
+            .includes(query?.toLowerCase()) ||
           i?.category?.toLowerCase().includes(query?.toLowerCase())
       );
 
+
   return (
     <>
+ 
       <div style={{ display: "flex", gap: "20px", marginBottom: "2%" }}>
         <img
           src={img}
@@ -60,7 +62,7 @@ const ViewCustomer = () => {
           }}
         />
         <p style={{ color: "black", fontSize: "18px", margin: "0" }}>
-          Member Customer List <br />
+        Member  Customer List <br />
           <span style={{ fontSize: "14px" }}>All Member Customer List</span>
         </p>
       </div>
@@ -136,9 +138,17 @@ const ViewCustomer = () => {
                   <td> {i.mobile} </td>
                   <td> {i.category} </td>
                   <td style={{ maxWidth: "200px" }} className="Comm">
-                    {i.comment}
+            
+                   {   i.comment}
+              
                   </td>
-                  <td>{i.reminder}</td>
+                  <td>
+                     { i.reminder
+                  
+                     }
+                 
+                  </td>
+                 
                 </tr>
               ))}
             </tbody>
@@ -149,4 +159,4 @@ const ViewCustomer = () => {
   );
 };
 
-export default HOC(ViewCustomer);
+export default HOC(ViewCustomer)

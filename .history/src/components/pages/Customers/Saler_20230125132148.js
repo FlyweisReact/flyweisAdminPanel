@@ -17,23 +17,22 @@ const Saler = () => {
   const [query, setQuery] = useState("");
   const [edit, setEdit] = useState(false);
   const [data, setData] = useState([]);
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem('token')
 
-  const fetchData = useCallback(async () => {
+  const fetchData =useCallback(async () => {
     try {
       const { data } = await axios.get(
-        "https://u4x75z11l9.execute-api.ap-south-1.amazonaws.com/dev/api/v1/admin/allsales",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+        "http://ec2-15-206-210-177.ap-south-1.compute.amazonaws.com:6699/api/v1/admin/allsales", {
+          headers : {
+            Authorization : `Bearer ${token}`
+          }
         }
       );
       setData(data);
     } catch (err) {
       console.log(err);
     }
-  }, [token]);
+  },[token])
 
   useEffect(() => {
     fetchData();
@@ -50,12 +49,11 @@ const Saler = () => {
       e.preventDefault();
       try {
         const data = await axios.post(
-          "https://u4x75z11l9.execute-api.ap-south-1.amazonaws.com/dev/api/v1/admin/addsales",
-          { name, email, mobile, password },
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
+          "http://ec2-15-206-210-177.ap-south-1.compute.amazonaws.com:6699/api/v1/admin/addsales",
+          { name, email, mobile, password } , {
+            headers : {
+              Authorization : `Bearer ${token}`
+            }
           }
         );
         console.log(data);
@@ -156,14 +154,15 @@ const Saler = () => {
           i?.category?.toLowerCase().includes(query?.toLowerCase())
       );
 
+ 
+
   const deleteHandler = async (id) => {
     try {
       const data = await axios.delete(
-        `https://u4x75z11l9.execute-api.ap-south-1.amazonaws.com/dev/api/v1/admin/delete/sales/${id}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+        `http://ec2-15-206-210-177.ap-south-1.compute.amazonaws.com:6699/api/v1/admin/delete/sales/${id}`, {
+          headers : {
+            Authorization : `Bearer ${token}`
+          }
         }
       );
       console.log(data);
@@ -290,9 +289,10 @@ const Saler = () => {
                     <div style={{ display: "flex", gap: "10px" }}>
                       <i
                         className="fa-solid fa-trash"
-                        style={{ color: "red", cursor: "pointer" }}
+                        style={{ color: "red" , cursor : 'pointer' }}
                         onClick={() => deleteHandler(i._id)}
                       ></i>
+                   
                     </div>
                   </td>
                 </tr>

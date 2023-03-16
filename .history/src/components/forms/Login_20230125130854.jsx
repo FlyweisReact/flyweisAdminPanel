@@ -8,7 +8,7 @@ import { BiLogInCircle } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Oval } from "react-loader-spinner";
-import img from "../Assets/Group 832 1.svg";
+import img from '../Assets/Group 832 1.svg'
 import axios from "axios";
 
 const Login = () => {
@@ -16,21 +16,18 @@ const Login = () => {
   const [inputpass, setInputpass] = useState(false);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const  [ email , setEmail  ] = useState("")
+  const  [password ,  setPassword ] = useState("")
+
 
   const login = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
-      const { data } = await axios.post(
-        "https://u4x75z11l9.execute-api.ap-south-1.amazonaws.com/dev/api/v1/admin/login",
-        {
-          email,
-          password,
-        }
-      );
-      localStorage.setItem("token", data.token);
+      const { data } = await axios.post("http://ec2-15-206-210-177.ap-south-1.compute.amazonaws.com:6699/api/v1/admin/login",{
+        email , password
+      })
+      localStorage.setItem("token" , data.token)
       navigate("/dashboard");
       toast.success("Welcome");
     } catch (err) {
@@ -47,11 +44,8 @@ const Login = () => {
           className="shadow-2xl w-96 mx-3 sm:mx-0 sm:w-4/5 md:w-4/6 lg:w-4/5 xl:w-1/2 flex flex-col items-center bg-white p-5 md:py-10 rounded-tl-3xl rounded-br-3xl"
           onSubmit={login}
         >
-          <span
-            className="text-center text-[rgb(241,146,46)]"
-            style={{ fontSize: "2rem" }}
-          >
-            <img src={img} alt="" />
+          <span className="text-center text-[rgb(241,146,46)]" style={{fontSize : '2rem'}}>
+         <img src={img} alt='' />
           </span>
           <section className="py-7 space-y-6">
             {/* Email */}
